@@ -32,14 +32,18 @@ const Menu = () => {
         </Navbar.Collapse>
         <Navbar.Collapse className=" justify-content-end">
           <Nav>
-            <NavLink
+            <button type="button" className="btn btn-warning">
+              <i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>{" "}
+              <span className="badge bg-secondary">0</span>
+            </button>
+            {/* <NavLink
               activeClassName="active"
               className="nav-item nav-link"
               exact
               to="/"
             >
-              Carrito
-            </NavLink>
+              <i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+            </NavLink> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import { Navbar, Nav, Container } from "react-bootstrap";
 const Menu = () => {
+  let user = JSON.parse(localStorage.getItem("usuario")) || null;
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -30,13 +31,14 @@ const Menu = () => {
             </NavLink>
           </Nav>
         </Navbar.Collapse>
-        <Navbar.Collapse className=" justify-content-end">
-          <Nav>
-            <button type="button" className="btn btn-warning">
-              <i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-              <span className="badge bg-secondary">0</span>
-            </button>
-            {/* <NavLink
+        {user && (
+          <Navbar.Collapse className=" justify-content-end">
+            <Nav>
+              <button type="button" className="btn btn-warning">
+                <i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                <span className="badge bg-secondary">0</span>
+              </button>
+              {/* <NavLink
               activeClassName="active"
               className="nav-item nav-link"
               exact
@@ -44,8 +46,9 @@ const Menu = () => {
             >
               <i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
             </NavLink> */}
-          </Nav>
-        </Navbar.Collapse>
+            </Nav>
+          </Navbar.Collapse>
+        )}
       </Container>
     </Navbar>
     // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

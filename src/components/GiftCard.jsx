@@ -1,6 +1,7 @@
 import React from "react";
 
 const GiftCard = ({ card }) => {
+  let user = JSON.parse(localStorage.getItem("usuario")) || null;
   // const imagen =
   //   "https://http2.mlstatic.com/D_NQ_NP_617413-MLA44837227390_022021-V.jpg";
   return (
@@ -11,7 +12,7 @@ const GiftCard = ({ card }) => {
           <h5 className="card-title">{card.titulo}</h5>
           <h3 className="card-text text-end">${card.precio}</h3>
           <div className="d-grid gap-2">
-            <button className="btn btn-warning">Agregar</button>
+            {user && <button className="btn btn-warning">Agregar</button>}
           </div>
         </div>
       </div>

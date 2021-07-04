@@ -30,7 +30,7 @@ const GiftCards = () => {
     <>
       {/* <Menu /> */}
       <div className="container">
-        <div className="row">
+        <div className="row mt-5">
           <div className="col">
             <h1>GiftCard</h1>
             <hr />

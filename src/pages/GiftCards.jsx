@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { postCarrito } from "../helpers/carrito";
+import { postCarrito, getIdCarrito } from "../helpers/carrito";
 
 import GiftCard from "../components/GiftCard";
+// import CarritoBoton from "../components/CarritoBoton";
 
 const GiftCards = () => {
   let user = JSON.parse(localStorage.getItem("usuario")) || null;
   const [carrito, setCarrito] = useState(null);
+  const [carritoUser, setCarritoUser] = useState(null)
   const [giftCards, setGiftCards] = useState({
     data: [],
     loading: true,
   });
+
 
   useEffect(() => {
     getCards().then((respuesta) => {
@@ -18,6 +21,13 @@ const GiftCards = () => {
         data: respuesta,
         loading: false,
       });
+
+    });
+
+
+    getIdCarrito(user.id).then((resp) => {
+      console.log(resp);
+      setCarritoUser(resp);
     });
   }, []);
 
@@ -25,6 +35,12 @@ const GiftCards = () => {
     if (carrito) {
       postCarrito(carrito).then((respuesta) => {
         console.log(respuesta);
+
+
+        getIdCarrito(user.id).then((resp) => {
+          console.log(resp);
+          setCarritoUser(resp);
+        });
       });
     }
   }, [carrito]);
@@ -47,6 +63,17 @@ const GiftCards = () => {
         <div className="row mt-5">
           <div className="col">
             <h1>GiftCard</h1>
+            {user &&
+
+              <button type="button" className="btn btn-primary">
+                <i
+                  className="fa fa-shopping-cart fa-2x"
+                  aria-hidden="true"
+                ></i>
+
+                <span className="badge bg-secondary ms-2">{carritoUser ? carritoUser.length : '0'}</span>
+              </button>
+            }
             <hr />
           </div>
         </div>
@@ -54,13 +81,13 @@ const GiftCards = () => {
           {giftCards.loading
             ? "Cargando..."
             : giftCards.data.map((card) => (
-                <GiftCard
-                  key={card.id}
-                  card={card}
-                  addCarrito={addCarrito}
-                  user={user}
-                />
-              ))}
+              <GiftCard
+                key={card.id}
+                card={card}
+                addCarrito={addCarrito}
+                user={user}
+              />
+            ))}
         </div>
       </div>
     </>

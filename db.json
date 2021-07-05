@@ -52,32 +52,22 @@
     {
       "idUser": 1,
       "prod": {
-        "id": 3,
-        "titulo": "Youtube premiun",
-        "precio": 400,
-        "imagen": "https://http2.mlstatic.com/D_NQ_NP_813482-MLU43746816524_102020-O.jpg"
+        "id": 1,
+        "titulo": "Amazon prime video",
+        "precio": 350,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_617413-MLA44837227390_022021-V.jpg"
       },
       "id": 1
     },
     {
       "idUser": 1,
       "prod": {
-        "id": 2,
-        "titulo": "Netflix",
-        "precio": 450,
-        "imagen": "https://cheapestgamecards.com/pi/netflix-gift-card-20-usd-42048.png"
+        "id": 3,
+        "titulo": "Youtube premiun",
+        "precio": 400,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_813482-MLU43746816524_102020-O.jpg"
       },
       "id": 2
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 2,
-        "titulo": "Netflix",
-        "precio": 450,
-        "imagen": "https://cheapestgamecards.com/pi/netflix-gift-card-20-usd-42048.png"
-      },
-      "id": 3
     }
   ]
 }

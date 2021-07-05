@@ -1,9 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { postCarrito } from "../helpers/carrito";
+
 import GiftCard from "../components/GiftCard";
-// import Menu from "../components/Menu";
+
 const GiftCards = () => {
+  let user = JSON.parse(localStorage.getItem("usuario")) || null;
+  const [carrito, setCarrito] = useState(null);
   const [giftCards, setGiftCards] = useState({
     data: [],
     loading: true,
@@ -19,11 +21,23 @@ const GiftCards = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (carrito) {
+      postCarrito(carrito).then((respuesta) => {
+        console.log(respuesta);
+      });
+    }
+  }, [carrito]);
+
   const getCards = async () => {
     let resp = await fetch("http://localhost:3004/giftcards");
     let datos = await resp.json();
 
     return datos;
+  };
+
+  const addCarrito = (card) => {
+    setCarrito({ idUser: user.id, prod: card });
   };
 
   return (
@@ -40,7 +54,12 @@ const GiftCards = () => {
           {giftCards.loading
             ? "Cargando..."
             : giftCards.data.map((card) => (
-                <GiftCard key={card.id} card={card} />
+                <GiftCard
+                  key={card.id}
+                  card={card}
+                  addCarrito={addCarrito}
+                  user={user}
+                />
               ))}
         </div>
       </div>

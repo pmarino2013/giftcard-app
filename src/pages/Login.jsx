@@ -34,7 +34,11 @@ const Login = (props) => {
 
     if (usuarioIndex > -1) {
       if (usuario.password == usuarios[usuarioIndex].password) {
-        localStorage.setItem("usuario", JSON.stringify(usuario.username));
+        let datos = {
+          username: usuarios[usuarioIndex].username,
+          id: usuarios[usuarioIndex].id,
+        };
+        localStorage.setItem("usuario", JSON.stringify(datos));
         props.history.replace("/");
       }
     }

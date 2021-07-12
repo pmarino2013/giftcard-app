@@ -33,7 +33,7 @@ const Login = (props) => {
     });
 
     if (usuarioIndex > -1) {
-      if (usuario.password == usuarios[usuarioIndex].password) {
+      if (usuario.password === usuarios[usuarioIndex].password.toString()) {
         let datos = {
           username: usuarios[usuarioIndex].username,
           id: usuarios[usuarioIndex].id,
@@ -50,6 +50,27 @@ const Login = (props) => {
     validarUsuario(formValues);
   };
 
+  if (user) {
+    return (
+      <>
+        <div className="container">
+          <div className="row mt-5">
+            <div className="col col-md-6 offset-md-3 ">
+              <div className="alert alert-success" role="alert">
+                Usuario logueado
+              </div>
+              <div className="d-grid gap-1">
+                <Link to="/" className="btn btn-info">
+                  Ir a Home
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <div className="container">
       <div className="row mt-5">
@@ -57,22 +78,11 @@ const Login = (props) => {
           <div className="card">
             <h5 className="card-header">Inicio de sesión</h5>
             <div className="card-body">
-              {user ? (
-                <>
-                  <div className="alert alert-success" role="alert">
-                    Usuario logueado
-                  </div>
-                  <Link to="/" className="nav-link">
-                    Ir a Home
-                  </Link>
-                </>
-              ) : (
-                <FormLogin
-                  formValues={formValues}
-                  handleChange={handleChange}
-                  handleSubmit={handleSubmit}
-                />
-              )}
+              <FormLogin
+                formValues={formValues}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+              />
             </div>
           </div>
         </div>

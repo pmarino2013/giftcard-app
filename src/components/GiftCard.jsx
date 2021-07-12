@@ -7,6 +7,8 @@ const GiftCard = ({ card, addCarrito, user }) => {
         <img src={card.imagen} className="card-img-top" alt={card.titulo} />
         <div className="card-body">
           <h5 className="card-title">{card.titulo}</h5>
+        </div>
+        <div className="card-footer">
           <h3 className="card-text text-end">${card.precio}</h3>
           <div className="d-grid gap-2">
             {user && (

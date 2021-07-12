@@ -52,16 +52,6 @@
     {
       "idUser": 1,
       "prod": {
-        "id": 1,
-        "titulo": "Amazon prime video",
-        "precio": 350,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 1
-    },
-    {
-      "idUser": 1,
-      "prod": {
         "id": 3,
         "titulo": "Youtube premiun",
         "precio": 400,

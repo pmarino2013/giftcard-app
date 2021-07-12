@@ -11,7 +11,7 @@ const CarritoModal = ({ show, handleClose, carritoUser, setCarritoUser }) => {
   }, [carritoUser]);
 
   const totalCarrito = () => {
-    console.log(carritoUser);
+    // console.log(carritoUser);
     let totalMostrar = 0;
     for (let i = 0; i < carritoUser.length; i++) {
       totalMostrar = totalMostrar + carritoUser[i].prod.precio;
@@ -25,9 +25,7 @@ const CarritoModal = ({ show, handleClose, carritoUser, setCarritoUser }) => {
     });
     setCarritoUser(arr);
 
-    deleteCarrito(id).then((respuesta) => {
-      console.log(respuesta);
-    });
+    deleteCarrito(id);
   };
 
   return (
@@ -50,14 +48,14 @@ const CarritoModal = ({ show, handleClose, carritoUser, setCarritoUser }) => {
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title">{item.prod.titulo}</h5>
-                    <p className="card-text">
+                    {/* <p className="card-text">
                       This is a wider card with supporting text below as a
                       natural lead-in to additional content. This content is a
                       little bit longer.
-                    </p>
-                    <p className="card-text">
-                      <small className="text-muted">{item.prod.precio}</small>
-                    </p>
+                    </p> */}
+                    <div className="card-text text-end">
+                      <h3 className="text-muted">${item.prod.precio}</h3>
+                    </div>
                     <div className="d-grid gap-1">
                       <button
                         className="btn btn-outline-danger"

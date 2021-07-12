@@ -79,18 +79,22 @@ const GiftCards = () => {
             <hr />
           </div>
         </div>
-        <div className="row row-cols-1 row-cols-md-4 g-4">
-          {giftCards.loading
-            ? "Cargando..."
-            : giftCards.data.map((card) => (
-                <GiftCard
-                  key={card.id}
-                  card={card}
-                  addCarrito={addCarrito}
-                  user={user}
-                />
-              ))}
-        </div>
+        {giftCards.loading ? (
+          <div className="alert alert-info text-center" role="alert">
+            Cargando Cards...
+          </div>
+        ) : (
+          <div className="row row-cols-1 row-cols-md-4 g-4">
+            {giftCards.data.map((card) => (
+              <GiftCard
+                key={card.id}
+                card={card}
+                addCarrito={addCarrito}
+                user={user}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

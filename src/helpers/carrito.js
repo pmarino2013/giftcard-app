@@ -21,3 +21,15 @@ export const getIdCarrito = async (id) => {
   let data = await resp.json();
   return data;
 };
+
+export const deleteCarrito = async (id) => {
+  const resp = await fetch(`http://localhost:3004/carrito/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+  const data = await resp.json();
+
+  return data;
+};

@@ -49,7 +49,18 @@ const GiftCards = () => {
   };
 
   const addCarrito = (card) => {
-    setCarrito({ idUser: user.id, prod: card });
+    console.log(card);
+    console.log(carritoUser);
+
+    let resultado = carritoUser.find((item) => {
+      return item.prod.id === card.id;
+    });
+
+    if (resultado) {
+      alert("Producto ya agregado");
+    } else {
+      setCarrito({ idUser: user.id, prod: card });
+    }
   };
 
   return (
@@ -59,7 +70,12 @@ const GiftCards = () => {
         <div className="row mt-5">
           <div className="col">
             <h1>GiftCard</h1>
-            {user && <CarritoBoton carritoUser={carritoUser} />}
+            {user && (
+              <CarritoBoton
+                carritoUser={carritoUser}
+                setCarritoUser={setCarritoUser}
+              />
+            )}
             <hr />
           </div>
         </div>

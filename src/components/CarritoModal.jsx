@@ -1,8 +1,35 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { deleteCarrito } from "../helpers/carrito";
 import { Modal, Button } from "react-bootstrap";
+import { useEffect } from "react";
 
-const CarritoModal = ({ show, handleClose, carritoUser }) => {
+const CarritoModal = ({ show, handleClose, carritoUser, setCarritoUser }) => {
+  const [state, setstate] = useState(0);
+
+  useEffect(() => {
+    totalCarrito();
+  }, [carritoUser]);
+
+  const totalCarrito = () => {
+    console.log(carritoUser);
+    let totalMostrar = 0;
+    for (let i = 0; i < carritoUser.length; i++) {
+      totalMostrar = totalMostrar + carritoUser[i].prod.precio;
+    }
+    setstate(totalMostrar);
+  };
+
+  const borrarCard = (id) => {
+    let arr = carritoUser.filter((item) => {
+      return item.id !== id;
+    });
+    setCarritoUser(arr);
+
+    deleteCarrito(id).then((respuesta) => {
+      console.log(respuesta);
+    });
+  };
+
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -31,6 +58,16 @@ const CarritoModal = ({ show, handleClose, carritoUser }) => {
                     <p className="card-text">
                       <small className="text-muted">{item.prod.precio}</small>
                     </p>
+                    <div className="d-grid gap-1">
+                      <button
+                        className="btn btn-outline-danger"
+                        onClick={() => {
+                          borrarCard(item.id);
+                        }}
+                      >
+                        Borrar
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -38,12 +75,20 @@ const CarritoModal = ({ show, handleClose, carritoUser }) => {
           ))}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
+        {carritoUser.length > 0 ? (
+          <>
+            <div className="alert alert-success" role="alert">
+              Total a pagar: ${state}
+            </div>
+            <Button variant="success" onClick={handleClose}>
+              Comprar
+            </Button>
+          </>
+        ) : (
+          <div className="alert alert-secondary" role="alert">
+            No hay productos a mostrar
+          </div>
+        )}
       </Modal.Footer>
     </Modal>
   );

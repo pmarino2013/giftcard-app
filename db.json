@@ -55,7 +55,7 @@
         "id": 1,
         "titulo": "Amazon prime video",
         "precio": 350,
-        "imagen": "https://http2.mlstatic.com/D_NQ_NP_617413-MLA44837227390_022021-V.jpg"
+        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
       },
       "id": 1
     },
@@ -65,69 +65,9 @@
         "id": 3,
         "titulo": "Youtube premiun",
         "precio": 400,
-        "imagen": "https://http2.mlstatic.com/D_NQ_NP_813482-MLU43746816524_102020-O.jpg"
+        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
       },
       "id": 2
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 3,
-        "titulo": "Youtube premiun",
-        "precio": 400,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 3
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 2,
-        "titulo": "Netflix",
-        "precio": 450,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 4
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 2,
-        "titulo": "Netflix",
-        "precio": 450,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 5
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 2,
-        "titulo": "Netflix",
-        "precio": 450,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 6
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 3,
-        "titulo": "Youtube premiun",
-        "precio": 400,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 7
-    },
-    {
-      "idUser": 1,
-      "prod": {
-        "id": 3,
-        "titulo": "Youtube premiun",
-        "precio": 400,
-        "imagen": "http://cdn.shopify.com/s/files/1/0758/4465/products/generic_card_5_1200x1200.png?v=1526687530"
-      },
-      "id": 8
     }
   ]
 }

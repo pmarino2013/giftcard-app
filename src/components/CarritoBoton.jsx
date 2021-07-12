@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import CarritoModal from "./CarritoModal";
 
-const CarritoBoton = ({ carritoUser }) => {
+const CarritoBoton = ({ carritoUser, setCarritoUser }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -17,11 +17,14 @@ const CarritoBoton = ({ carritoUser }) => {
           {carritoUser ? carritoUser.length : "0"}
         </span>
       </button>
-      <CarritoModal
-        show={show}
-        handleClose={handleClose}
-        carritoUser={carritoUser}
-      />
+      {carritoUser && (
+        <CarritoModal
+          show={show}
+          handleClose={handleClose}
+          carritoUser={carritoUser}
+          setCarritoUser={setCarritoUser}
+        />
+      )}
     </>
   );
 };
